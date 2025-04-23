@@ -1,24 +1,29 @@
+# backend/app/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.api.v1.endpoints import queries, health
+from app.core.config import settings
 
-app = FastAPI()
+app = FastAPI(
+    title="TravelBuddy Q&A API",
+    description="A Q&A API for travel questions powered by DeepSeek LLM",
+    version="1.0.0"
+)
 
-# CORS configuration
+# CORS for frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[settings.frontend_url],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root():
-    return {"message": "Travel Assistant API is running"}
+# Include API routers
+app.include_router(health.router, prefix="/api/v1")
+app.include_router(queries.router, prefix="/api/v1")
 
-@app.post("/api/query")
-async def handle_query(query: str):
-    # This is a mock response - replace with actual LLM integration
-    return {
-        "response": f"Mock response to: {query}\n\nRequired documents:\n1. Valid passport\n2. Visa (if applicable)\n3. Travel insurance",
-        "status": "success"
-    }
+@app.get("/", summary="Root endpoint")
+async def root():
+    """Returns a welcome message for the API."""
+    return {"message": "TravelBuddy Q&A API is running"}

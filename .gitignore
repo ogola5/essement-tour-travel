@@ -1,0 +1,114 @@
+# --- General ---
+# Environment variables (VERY IMPORTANT!)
+.env
+.env.*.local
+.env.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log files
+*.log
+logs/
+*.log.*
+
+# Temporary files
+*.swp
+*~
+*.tmp
+
+# IDE/Editor directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+
+# --- Python / FastAPI Backend ---
+
+# Virtual environment folders (common names)
+venv/
+*/venv/
+.venv/
+env/
+*/env/
+.env/
+env.bak/
+venv.bak/
+
+# Python cache files
+__pycache__/
+*.py[cod] # .pyc, .pyo, .pyd
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+wheels/
+*.whl
+
+# Testing
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Databases (if used locally for dev/test)
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Instance folder (sometimes used by frameworks)
+instance/
+
+
+# --- Node.js / Next.js Frontend ---
+
+# Dependencies (VERY IMPORTANT!)
+node_modules/
+jspm_packages/
+
+# Build output directories
+.next/
+out/
+build/ # Can overlap with Python, but often used by JS tools too
+
+# Debug log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Next.js specific local environment variables (already covered by .env.*.local)
+# .env.development.local
+# .env.test.local
+# .env.production.local
+
+# Vercel deployment files (if applicable)
+.vercel/
+
+# TypeScript build cache (if using TypeScript)
+*.tsbuildinfo
+
+# Storybook output (if using Storybook)
+storybook-static/
+
+
+# --- Docker --- (Optional, if you don't want to commit built images/cache locally)
+# Usually you *commit* Dockerfiles and compose files, but ignore build context artifacts if needed
+
+
+# --- Other Possible Exclusions ---
+# Large data files / assets not needed in repo
+# data/
+# assets/large_files/
