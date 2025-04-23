@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     """Application configuration settings."""
     app_name: str = "TravelBuddy Q&A"
     frontend_url: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
-    deepseek_api_key: str = os.getenv("DEEPSEEK_API_KEY", "")
+    gemini_api_key: str = os.getenv("GEMINI_API_KEY", "")
     api_v1_prefix: str = "/api/v1"
 
     class Config:
